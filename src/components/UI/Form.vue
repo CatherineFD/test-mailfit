@@ -113,15 +113,18 @@ export default {
   &__button {
     margin-top: 15px;
   }
-}
 
-.error {
-  border: 1px solid #9d0000;
+  .error {
+    border: 1px solid #9d0000;
+    background-color: #fce0e0;
 
-  &__title {
-    color: #9d0000;
-    font-size: 14px;
-    margin-top: 5px;
+    &__title {
+      color: #ce4848;
+      font-size: 14px;
+      margin-top: 5px;
+    }
   }
 }
+
+
 </style>

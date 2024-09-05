@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <button @click="clearTasks">Очистить</button>
     <router-view/>
     <ComponentCreateTask/>
   </div>
@@ -14,11 +13,6 @@ export default {
   components: {
     PageAllTasks,
     ComponentCreateTask
-  },
-  methods: {
-    ...mapActions({
-      clearTasks: 'clearTasks'
-    })
   },
 }
 </script>
