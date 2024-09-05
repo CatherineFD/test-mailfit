@@ -1,5 +1,5 @@
 <script>
-import ItemOfList from "@/components/ItemOfList.vue";
+import ItemOfList from "@/components/ListOfTask/ItemOfList.vue";
 export default {
   name: "ListOfTasks",
   components: {
@@ -26,10 +26,11 @@ export default {
 <template>
   <div class="list">
     <h3 class="title" v-if="isShowTitle">{{title}}</h3>
-
-    <div v-for="task in tasks" :key="task.id">
-      <ItemOfList :props-task="task"></ItemOfList>
-    </div>
+    <TransitionGroup name="list" tag="div">
+      <div v-for="task in tasks" :key="task.id">
+        <ItemOfList :props-task="task" :key="task.id"></ItemOfList>
+      </div>
+    </TransitionGroup>
   </div>
 
 </template>
@@ -44,6 +45,22 @@ export default {
     font-size: 20px;
     color: #808080;
   }
+}
+
+.list-move,
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.5s ease;
+}
+
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateY(100px);
+}
+
+.list-leave-active {
+  position: absolute;
 }
 
 </style>

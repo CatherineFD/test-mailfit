@@ -1,48 +1,78 @@
 <script>
 import Button from "@/components/UI/Button.vue";
-import {mapActions} from "vuex";
 export default {
   name: "Form",
   components: {
     Button
   },
+  props: {
+    propsTask: {
+      type: Object,
+      default() {
+        return {
+          id: Date.now(),
+          title: '',
+          description: '',
+          isCompleted: false,
+          date: new Date().toLocaleDateString()
+        }
+      }
+    },
+    titleButton: {
+      type: String,
+      default: 'Создать задачу'
+    },
+    title: {
+      type: String,
+      default: 'Создание задачи'
+    }
+  },
   data() {
     return {
-      task: {
-        title: '',
-        description: '',
-        isCompleted: false,
-        date: new Date().toLocaleDateString()
-      }
+      task: {...this.propsTask},
+      isErrorInput: false
     }
   },
   methods: {
-    ...mapActions({
-      createTask: 'createNewTask'
-    }),
     handlerCreateTask() {
-      this.createTask(this.task);
+      this.checkError();
+      if(this.isError) {
+        return
+      }
+
+      this.$emit('handlerTask', this.task);
       this.task = {
+        id: Date.now(),
         title: '',
         description: '',
         isCompleted: false,
         date: new Date().toLocaleDateString()
       }
-
       this.$emit('close')
+    },
+    checkError() {
+      this.isErrorInput = this.task.title === ''
     }
   },
+  computed: {
+    isError() {
+      return this.isErrorInput;
+    }
+  }
 }
 </script>
 
 <template>
-  <form class="form" @submit.prevent>
-    <h3 class="form__title">Создание задачи</h3>
+  <form class="form" @submit.prevent="handlerCreateTask">
+    <h3 class="form__title">{{ title }}</h3>
     <input
         type="text"
         placeholder="Введите название"
         v-model="task.title"
+        :class="{'error': isError}"
+        @input="checkError"
     >
+    <p v-if="isError" class="error__title">В названии должно быть не менее 3х символов</p>
 
     <textarea
         name="description"
@@ -52,8 +82,8 @@ export default {
         v-model="task.description"
     ></textarea>
 
-    <div>
-      <Button :title="'Создать задачу'" @clickBtn="handlerCreateTask"></Button>
+    <div class="form__button">
+      <Button :title="titleButton" type="submit"></Button>
     </div>
   </form>
 
@@ -64,6 +94,7 @@ export default {
   display: flex;
   flex-direction: column;
   padding: 20px 10px;
+  z-index: 100;
 
   &__title {
     margin-bottom: 20px;
@@ -71,7 +102,7 @@ export default {
   }
 
   input, textarea {
-    margin-bottom: 20px;
+    margin-top: 15px;
     padding: 10px 15px;
     border: 1px solid rgba(1, 98, 133, 0.38);
     border-radius: 7px;
@@ -79,6 +110,18 @@ export default {
     font-weight: 500;
   }
 
+  &__button {
+    margin-top: 15px;
+  }
 }
 
+.error {
+  border: 1px solid #9d0000;
+
+  &__title {
+    color: #9d0000;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+}
 </style>

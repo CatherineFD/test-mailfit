@@ -32,6 +32,7 @@ export default {
 
 .modal {
   min-width: 600px;
+  z-index: 10;
 
   &__header {
     width: 100%;

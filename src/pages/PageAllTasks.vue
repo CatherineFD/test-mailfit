@@ -2,9 +2,8 @@
   <div class="container">
     <SearchTask @search="filterTasks"></SearchTask>
     <ListOfTasks :tasks="filteredTasks" :title="'Tasks'"></ListOfTasks>
-    <hr>
-    <ListOfTasks :tasks="filteredCompletedTasks" :title="'Completed tasks'"></ListOfTasks>
 
+    <ListOfTasks :tasks="filteredCompletedTasks" :title="'Completed tasks'"></ListOfTasks>
   </div>
 </template>
 
