@@ -1,5 +1,5 @@
 ## Description project
-The test task for Mailfit company.
+The To-Do application. Technologies that were used in the development:  Vue 2, Vue, Vue Router, Scss 
 
 
 ## Project setup
