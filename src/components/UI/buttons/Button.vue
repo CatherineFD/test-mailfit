@@ -21,7 +21,7 @@ button {
   padding: 10px 15px;
   border: 1px solid rgba(1, 98, 133, 0.38);
   border-radius: 7px;
-  background-color: rgba(76, 170, 204, 0.14);
+  background-color: #4caacc70;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.4s ease;

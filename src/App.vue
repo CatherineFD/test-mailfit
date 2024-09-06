@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <router-view/>
-<!--    <ComponentCreateTask/>-->
+    <ComponentCreateTask/>
   </div>
 </template>
 
@@ -31,7 +31,6 @@ export default {
   height: 100%;
   min-height: 100vh;
   justify-content: center;
-  //background-image: url("@/assets/Landing/background-header.png");
   background-color: #c8e2e5;
   //background-blend-mode: multiply;
 }

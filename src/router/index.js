@@ -1,16 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import PageAllTasks from "@/pages/PageAllTasks.vue";
-import Landing from "@/pages/Landing.vue";
 
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '/landing',
-    name: 'landing',
-    component: Landing
-  },
   {
     path: '/',
     name: 'to-do',

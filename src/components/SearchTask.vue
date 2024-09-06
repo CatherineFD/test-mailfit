@@ -1,9 +1,9 @@
 <script>
-import Button from "@/components/UI/Button.vue"
+import ButtonImg from "@/components/UI/buttons/ButtonWithImg.vue"
 export default {
   name: "SearchTask",
   components: {
-    Button
+    ButtonImg
   },
   data() {
     return {
@@ -26,7 +26,9 @@ export default {
 <template>
   <div class="search">
     <input type="text" placeholder="Поиск..." class="search__input" v-model="search">
-    <Button :title="'Найти'" class="search__btn" @clickBtn="handlerSearch"></Button>
+    <ButtonImg class="search__btn" @clickBtn="handlerSearch">
+      <img src="@/assets/UI/icon-search.svg" alt="search">
+    </ButtonImg>
   </div>
 </template>
 

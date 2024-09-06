@@ -31,7 +31,7 @@ export default {
 }
 
 .modal {
-  min-width: 600px;
+  width: 50%;
   z-index: 10;
 
   &__header {
@@ -53,6 +53,18 @@ export default {
     background-color: #fff;
     border-radius: 8px;
 
+  }
+}
+
+@media (max-width: 992px) {
+  .modal {
+    width: 60%;
+  }
+}
+
+@media (max-width:  556px) {
+  .modal {
+    width: 80%;
   }
 }
 </style>

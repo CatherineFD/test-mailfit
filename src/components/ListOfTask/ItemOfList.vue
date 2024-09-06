@@ -1,12 +1,12 @@
 <script>
 import {mapActions} from "vuex";
-import Button from "@/components/UI/Button.vue";
+import ButtonImg from "@/components/UI/buttons/ButtonWithImg.vue";
 import EditTask from "@/components/ListOfTask/EditTask.vue";
 
 export default {
   name: "ItemOfList",
   components: {
-    Button, EditTask
+    ButtonImg, EditTask
   },
   props: {
     propsTask: {
@@ -54,7 +54,9 @@ export default {
 
     <div class="date">{{task.date}}</div>
 
-    <Button @clickBtn="handlerDeleteTask()" :title="'Удалить'"></Button>
+    <ButtonImg @clickBtn="handlerDeleteTask()" >
+      <img src="@/assets/UI/remove.svg" alt="remove">
+    </ButtonImg>
   </div>
 </template>
 
@@ -71,7 +73,6 @@ export default {
 }
 
 .date {
-  width: 10%;
   color: #808080;
   margin-left: 10px;
   margin-right: 10px;

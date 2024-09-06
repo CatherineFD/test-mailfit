@@ -1,5 +1,5 @@
 <script>
-import Button from "@/components/UI/Button.vue";
+import Button from "@/components/UI/buttons/Button.vue";
 export default {
   name: "Form",
   components: {

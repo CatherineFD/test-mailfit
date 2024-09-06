@@ -1,5 +1,5 @@
 <script>
-import Button from "@/components/UI/Button.vue";
+import Button from "@/components/UI/buttons/Button.vue";
 import Modal from "@/components/UI/Modal.vue";
 import Form from "@/components/UI/Form.vue";
 import {mapActions} from "vuex";

@@ -81,17 +81,4 @@ export default {
     padding: 0 10px;
   }
 }
-
-//@media (max-width:  480px) {
-//  .container {
-//    max-width: 100%;
-//  }
-//}
-
-//@media (max-width: 320px) {
-//  .container {
-//    max-width: 800px;
-//  }
-//}
-
 </style>

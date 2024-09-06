@@ -67,7 +67,7 @@ export default {
             @close="showModal"
             @handlerTask="handlerChangeTask"
             :props-task="task"
-            :title-button="'Изменить задачу'"
+            :title-button="'Сохранить изменения'"
             :title="'Изменение задачи'"
         ></Form>
       </Modal>
@@ -96,12 +96,15 @@ export default {
 }
 
 .information {
-  width: 70%;
+  width: 100%;
+  margin-right: 5px;
+  margin-left: 5px;
   &__title {
     margin-bottom: 5px;
   }
 
   &__description {
+    width: 100%;
     margin-bottom: 5px;
     font-size: 13px;
     color: #808080;
